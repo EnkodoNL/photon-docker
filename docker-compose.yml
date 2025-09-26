@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 services:
   photon:
     build:
@@ -6,10 +6,6 @@ services:
       dockerfile: Dockerfile
     image: tonsnoei/photon-geocoder:latest
     volumes:
-      - ./data:/photon/photon_data
+      - ${HOST_DATA_PATH:-./data}:/photon/photon_data
     ports:
-      - 2322:2322
-
-volumes:
-  data:
-    driver: local
+      - ${HOST_PORT:-2322}:2322
