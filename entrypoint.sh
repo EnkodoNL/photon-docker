@@ -6,7 +6,11 @@ if [ ! -d "/photon/photon_data/elasticsearch" ]; then
     echo "Downloading search index to /photon/photon_data"
     
     # Create data directory if it doesn't exist
-    mkdir -p /photon/photon_data
+    if [ ! -d "/photon/photon_data" ]; then
+        echo "Creating /photon/photon_data directory"
+        mkdir -p /photon/photon_data
+    fi
+    
     
     # Change to data directory before extracting
     cd /photon/photon_data
@@ -21,6 +25,9 @@ if [ ! -d "/photon/photon_data/elasticsearch" ]; then
     # Return to photon directory
     cd /photon
 fi
+
+
+ls -la /photon/photon_data
 
 # Start photon if elastic index exists
 if [ -d "/photon/photon_data/elasticsearch" ]; then
