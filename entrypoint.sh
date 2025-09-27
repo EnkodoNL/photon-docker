@@ -17,8 +17,8 @@ if [ ! -d "/photon/photon_data/elasticsearch" ]; then
     USER_AGENT="docker: photon-geocoder"
     # If you want to install a specific region only, enable the line below and disable the current 'wget' row.
     # See http://download1.graphhopper.com/public/extracts/by-country-code
-    # wget --user-agent="$USER_AGENT" -O - http://download1.graphhopper.com/public/extracts/by-country-code/nl/photon-db-nl-latest.tar.bz2 | lbzip2 -cd | tar x
-    wget --user-agent="$USER_AGENT" -O - http://download1.graphhopper.com/public/photon-db-latest.tar.bz2 | lbzip2 -cd | tar x
+    # wget --user-agent="$USER_AGENT" -O - http://download1.graphhopper.com/public/extracts/by-country-code/nl/photon-db-nl-latest.tar.bz2 | bzip2 -cd | tar x
+    wget --user-agent="$USER_AGENT" -O - http://download1.graphhopper.com/public/photon-db-latest.tar.bz2 | bzip2 -cd | tar x
 
     # Return to photon directory
     cd /photon || exit 1

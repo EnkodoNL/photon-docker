@@ -1,7 +1,7 @@
 FROM eclipse-temurin:17-jre-alpine
 
-# Tools: lbzip2 (parallel bzip2), bzip2 (for compatibility), wget, certs
-RUN apk add --no-cache lbzip2 bzip2 wget ca-certificates
+# Tools: bzip2, wget, certs
+RUN apk add --no-cache bzip2-dev wget ca-certificates
 
 ENV PHOTON_VERSION=0.7.4
 WORKDIR /photon
