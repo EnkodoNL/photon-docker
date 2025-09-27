@@ -31,8 +31,15 @@ ls -la /photon/photon_data
 
 # Start photon if elastic index exists
 if [ -d "/photon/photon_data/elasticsearch" ]; then
-    echo "Start photon"
-    java -jar photon.jar $@
+    echo "Start photon with configuration:"
+    echo "  Host: 0.0.0.0"
+    echo "  Port: 2322"
+    echo "  Data directory: /photon/photon_data"
+    echo "  Additional arguments: $@"
+    
+    # Start photon with proper configuration
+    exec java -jar photon.jar -host 0.0.0.0 -port 2322 -data-dir /photon/photon_data $@
 else
     echo "Could not start photon, the search index could not be found"
+    exit 1
 fi
