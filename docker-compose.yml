@@ -5,7 +5,5 @@ services:
       context: .
       dockerfile: Dockerfile
     image: tonsnoei/photon-geocoder:latest
-    volumes:
-      - ${HOST_DATA_PATH:-./photon}:/photon
     ports:
       - ${HOST_PORT:-2322}:2322
